@@ -1,0 +1,30 @@
+function obtenerSaludo() {
+  const ahora = new Date();
+  const hora = ahora.getHours();
+  const pais = Intl.DateTimeFormat().resolvedOptions().timeZone; // Obtiene la zona horaria del usuario
+
+  let saludo = "";
+
+  if (hora >= 5 && hora < 12) {
+    saludo = "¡Buenos días!";
+  } else if (hora >= 12 && hora < 18) {
+    saludo = "¡Buenas tardes!";
+  } else {
+    saludo = "¡Buenas noches!";
+  }
+
+  // Ajusta el saludo según el país (puedes expandir esto)
+  if (pais.includes("Colombia")) {
+    saludo += " ¡Un saludo desde Colombia!";
+  } else if (pais.includes("Mexico")) {
+    saludo += " ¡Un saludo desde México!";
+  } else if (pais.includes("Argentina")) {
+    saludo += " ¡Un saludo desde Argentina!";
+  }
+
+  return saludo;
+}
+
+// Ejemplo de uso
+const saludoPersonalizado = obtenerSaludo();
+console.log(saludoPersonalizado);
